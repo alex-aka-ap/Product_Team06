@@ -31,6 +31,18 @@
       </script>
    </head>
    <body>
+      <center>
+	  <h1 style="color:white;">COVID-19 INDIANA COUNTY-WISE FORECASTING</h1>
+	  </center>
+	  <style>
+		body {
+		  background-image: url('background.jpg');
+		  background-repeat: no-repeat;
+		  background-attachment: fixed;
+		  background-size: cover;
+		}
+	  </style>
+	  <center>
       <select onchange="Swap(this,'MyImg');" >
          <option value='INDIANA_COUNTIES'>Select County</option>
          <option value='ADAMS'>ADAMS</option>
@@ -126,8 +138,11 @@
          <option value='WHITE'>WHITE</option>
          <option value='WHITLEY'>WHITLEY</option>
       </select>
+	  </center>
       <br>
       <br>
-      <img id="MyImg" src="COVID Forecasting/output_images/INDIANA_COUNTIES.png" width=500 height=1300 >
+      <center>
+	  <img id="MyImg" src="COVID Forecasting/output_images/INDIANA_COUNTIES.png" width=500 height=1300 >
+	  </center>
    </body>
 </html>
