@@ -14,3 +14,6 @@ https://team6-forecast-covid-deaths.herokuapp.com/
 
 # Indiana County-wise 1-day COVID Test Forecast (Geomap)
 https://team6-forecast-covid-test.herokuapp.com/
+
+# Policy Map
+https://team-6-policy-map.herokuapp.com/
