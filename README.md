@@ -12,7 +12,9 @@ ii.  Realtime Population Density
 
 iii. US State-wise Policy Checker
 
-iv.  Miscellaneous (Nearest COVID Testing center, COVID symptoms, Developer's bio, Bug reporting)
+iv. COVID-19 Daily News
+
+v.  Miscellaneous (Nearest COVID Testing center, COVID symptoms, Developer's bio, Bug reporting)
 
 
 ## 2. Components
@@ -72,7 +74,12 @@ These policies are represented in the geomap with different color schemes for di
 
 [https://team-6-policy-map.herokuapp.com/]
 
-### iv. Miscellaneous
+### iv. COVID-19 Daily News
+This section of the app updates daily and displays all the latest news related to COVID-19. The source of the news is Google News. The news are presented in the form of headlines along with the publishing date and the respective source URL for additional information.
+
+[https://team6-covid-daily-news.herokuapp.com/]
+
+### v. Miscellaneous
 
 
 
@@ -93,6 +100,9 @@ These policies are represented in the geomap with different color schemes for di
 
 ### Policy Map
 > https://team-6-policy-map.herokuapp.com/
+
+### COVID-19 Daily News
+> https://team6-covid-daily-news.herokuapp.com/
 
 
 
