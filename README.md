@@ -1,6 +1,7 @@
 # COVID Detection (Team 06)
+This project repository is the part of Techpoint's S.O.S. challenge - 2020. It consists of "COVID DETECTION" activites and developing an app which serves as a one-stop & quick-access solution for a layman covering majority of the COVID-19 related contents, without searching on Google.
 
-## 1.Introduction
+## 1. Introduction
 In this project, we (Team-06) have implemented various measures and details related to the novel coronavirus COVID-19. For this, we have analyzed the past data, displayed the present scenario and forecasted future trends. 
 
 Below are the main components of our app-
@@ -10,7 +11,7 @@ iii. US State-wise Policy Checker
 iv.  Miscellaneous (Nearest COVID Testing center, COVID symptoms, Developer's bio, Bug reporting)
 
 
-## 2.Components
+## 2. Components
 
 ### i. Dashboard
 This component provides COVID-19 forecasts with respect to New cases, deaths and tests that would be conducted (based on the new cases). The forecasts are done by analyzing the past county-wise statistical trends. We have made use of time-series model and implemented it using Tensorflow and LSTMs (Long-Short Term Memory). 
@@ -19,11 +20,15 @@ These predictions depend on various input factors such as Past New COVID-19 Case
 
 This component has two types of outputs-
 a. Next 5-days county-wise forecast charts
+
 [https://team6-covid-forecasting.herokuapp.com/]
 
 b. Geo-spatial maps of the next 1-day forecast
+
 [https://team6-forecast-covid-count.herokuapp.com/]
+
 [https://team6-forecast-covid-deaths.herokuapp.com/]
+
 [https://team6-forecast-covid-test.herokuapp.com/]
 
 
@@ -48,6 +53,7 @@ j. Status of Reopening
 k. Stay at Home Order
 
 These policies are represented in the geomap with different color schemes for different policies.
+
 [https://team-6-policy-map.herokuapp.com/]
 
 ### iv. Miscellaneous
@@ -55,7 +61,7 @@ These policies are represented in the geomap with different color schemes for di
 
 
 
-## 3.Important URLs hosted for the app
+## 3. Important URLs hosted for the app
 
 ### COVID-19 Indiana County-wise Forecasting (Forecast Graphs)
 > https://team6-covid-forecasting.herokuapp.com/
@@ -74,7 +80,7 @@ These policies are represented in the geomap with different color schemes for di
 
 
 
-## 4.Datasets Used & External Source of Information
+## 4. Datasets Used & External Source of Information
 a] Indiana County-wise COVID Cases, Deaths, Tests
 > https://hub.mph.in.gov/dataset/bd08cdd3-9ab1-4d70-b933-41f9ef7b809d/resource/afaa225d-ac4e-4e80-9190-f6800c366b58/download/covid_report_county_date.xlsx?raw=true
 
