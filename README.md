@@ -5,9 +5,13 @@ This project repository is the part of Techpoint's S.O.S. challenge - 2020. It c
 In this project, we (Team-06) have implemented various measures and details related to the novel coronavirus COVID-19. For this, we have analyzed the past data, displayed the present scenario and forecasted future trends. 
 
 Below are the main components of our app-
+
 i.   Dashboard
+
 ii.  Realtime Population Density
+
 iii. US State-wise Policy Checker
+
 iv.  Miscellaneous (Nearest COVID Testing center, COVID symptoms, Developer's bio, Bug reporting)
 
 
@@ -19,6 +23,7 @@ This component provides COVID-19 forecasts with respect to New cases, deaths and
 These predictions depend on various input factors such as Past New COVID-19 Cases, past deaths due to COVID-19, past tests being conducted, population of the county, Area of the county, and population-density of the county. We have trained the model for 1500 epochs and have achieved an accuracy of ~95%. 
 
 This component has two types of outputs-
+
 a. Next 5-days county-wise forecast charts
 
 [https://team6-covid-forecasting.herokuapp.com/]
@@ -40,16 +45,27 @@ The above outputs are integrated into the app and they can also be accessed usin
 
 ### iii. US State-wise Policy Checker
 This component of our app provides realtime COVID-19 US statewise policies pertaining to various aspects:
+
 a. Bar Closures
+
 b. Emergency Declaration
+
 c. Face Covering Requirement
+
 d. Large Gatherings Ban
+
 e. Mandatory Quarantine for Travelers
+
 f. Non-Essential Business Closures
+
 g. Primary Election Postponement
+
 h. Restaurant Limits
+
 i. School Closures
+
 j. Status of Reopening
+
 k. Stay at Home Order
 
 These policies are represented in the geomap with different color schemes for different policies.
