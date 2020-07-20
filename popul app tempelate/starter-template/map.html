@@ -1,0 +1,792 @@
+﻿<!DOCTYPE html>
+
+<!--Code modified from: 
+     https://docs.mapbox.com/help/tutorials/building-a-store-locator/?utm_source=gljsonboard1&utm_medium=email&utm_content=gljs-tutorial&utm_campaign=gljsonboard1
+-->
+
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Store Locator</title>
+    <meta name='robots' content='noindex, nofollow'>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+      body {
+        color:#404040;
+        font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+        margin:0;
+        padding:0;
+        -webkit-font-smoothing:antialiased;
+      }
+
+      * {
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        box-sizing:border-box;
+      }
+
+      .sidebar {
+        position:absolute;
+        width:33.3333%;
+        height:100%;
+        top:0;left:0;
+        overflow:hidden;
+        border-right:1px solid rgba(0,0,0,0.25);
+      }
+      .pad2 {
+        padding:20px;
+      }
+
+      
+
+      .map {
+        position:absolute;
+        left:33.3333%;
+        width:66.6666%;
+        top:0;bottom:0;
+      }
+
+      h1 {
+        font-size:22px;
+        margin:0;
+        font-weight:400;
+        line-height: 20px;
+        padding: 20px 2px;
+      }
+
+      a {
+        color:#404040;
+        text-decoration:none;
+      }
+
+      a:hover {
+        color:#101010;
+      }
+
+      .heading {
+        background:#fff;
+        border-bottom:1px solid #eee;
+        min-height:60px;
+        line-height:60px;
+        padding:0 10px;
+        background-color: #00b8d4 ;
+        color: #fff;
+      }
+
+      .safety_heading {
+        background:#fff;
+        border-bottom:1px solid #eee;
+        min-height:60px;
+        line-height:60px;
+        padding:0 10px;
+        background-color: #00853e;
+        color: #fff;
+      }
+
+
+      .listings {
+        height:100%;
+        overflow:auto;
+        padding-bottom:60px;
+      }
+
+      .listings .item {
+        display:block;
+        border-bottom:1px solid #eee;
+        padding:10px;
+        text-decoration:none;
+      }
+
+      .listings .item:last-child { border-bottom:none; }
+      .listings .item .title {
+        display:block;
+        color:#00853e;
+        font-weight:700;
+      }
+
+      .listings .item .title small { font-weight:400; }
+      .listings .item.active .title,
+      .listings .item .title:hover { color:#8cc63f; }
+      .listings .item.active {
+        background-color:#f8f8f8;
+      }
+      ::-webkit-scrollbar {
+        width:3px;
+        height:3px;
+        border-left:0;
+        background:rgba(0,0,0,0.1);
+      }
+      ::-webkit-scrollbar-track {
+        background:none;
+      }
+      ::-webkit-scrollbar-thumb {
+        background:#00853e;
+        border-radius:0;
+      }
+
+      .marker {
+        border: none;
+        cursor: pointer;
+        height: 56px;
+        width: 56px;
+        background-image: url(marker.png);
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      .clearfix { display:block; }
+      .clearfix:after {
+        content:'.';
+        display:block;
+        height:0;
+        clear:both;
+        visibility:hidden;
+      }
+
+      /* Marker tweaks */
+      .mapboxgl-popup {
+        padding-bottom: 50px;
+      }
+
+      .mapboxgl-popup-close-button {
+        display:none;
+      }
+      .mapboxgl-popup-content {
+        font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+        padding:0;
+        width:200px;
+      }
+      .mapboxgl-popup-content-wrapper {
+        padding:1%;
+      }
+      .mapboxgl-popup-content h2 {
+        background:#91c949;
+        color:#fff;
+        margin:0;
+        display:block;
+        padding:10px;
+        border-radius:3px 3px 0 0;
+        font-weight:700;
+        margin-top:-15px;
+      }
+
+      .mapboxgl-popup-content h3 {
+        background:#F54507;
+        color:#fff;
+        margin:0;
+        display:block;
+        padding: 10px 10px 10px 10px;
+        font-weight:400;
+      }
+
+      .mapboxgl-popup-content h4 {
+        margin:0;
+        display:block;
+        padding: 10px 10px 10px 10px;
+        font-weight:400;
+      }
+
+      
+
+      .mapboxgl-popup-content h4.white {
+        margin:0;
+        display:block;
+        padding: 10px 10px 10px 10px;
+        font-weight:400;
+        background: #ffffff;
+        color: #404040
+      }
+
+      .mapboxgl-popup-content h4.red {
+        margin:0;
+        display:block;
+        padding: 10px 10px 10px 10px;
+        font-weight:400;
+        background: #ee5732;
+        color: #ffffff
+      }
+
+      .mapboxgl-popup-content h4.orange {
+        margin:0;
+        display:block;
+        padding: 10px 10px 10px 10px;
+        font-weight:400;
+        background: #ec811c;
+        color: #ffffff
+      }
+
+      .mapboxgl-popup-content h4.yellow {
+        margin:0;
+        display:block;
+        padding: 10px 10px 10px 10px;
+        font-weight:400;
+        background: rgb(236, 193, 52);
+        color: #ffffff
+      }
+
+      .mapboxgl-popup-content h4.green {
+        margin:0;
+        display:block;
+        padding: 10px 10px 10px 10px;
+        font-weight:400;
+        background: rgb(128, 218, 68);
+        color: #ffffff
+      }
+
+      .mapboxgl-popup-content div {
+        padding:10px;
+      }
+
+      .mapboxgl-container .leaflet-marker-icon {
+        cursor:pointer;
+      }
+
+      .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+        margin-top: 15px;
+      }
+
+      .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+        border-bottom-color: #91c949;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='sidebar' id='sidebar'>
+      <div class='heading' id='heading' style="display:block">
+        <h1>Some Example Locations</h1>
+        <a href="index.html" class="nav__link">
+          <i class="material-icons nav__icon" style="color: white;">home</i>
+          <span class="nav__text" style="color: white;">Back to home page</span>
+        </a>      
+      </div>
+      <div class='safety_heading' id='safety_heading' style="display:none">
+        <h1>Location Safety Data</h1>
+      </div>
+
+      <div id='listings' class='listings' style="display:block">
+
+        <input type="text" name="searchField" id="searchField" onkeyup="searchWithField()" placeholder="Search..."/>
+        
+      </div>
+      <div class='submissions' id='submissions' style="display:none">
+        <h2>Most Recent Submission Report</h2>
+        <div id='recentsub' class='recentsub'>
+
+        </div>
+        <h2>Average Submission Data - Past 1 Hour</h2>
+        <div id='avgsub' class='avgsub'>
+
+        </div>
+        <button class="button" id="backbutton" onclick="backToSearch()">Back</button>
+      </div>
+    </div>
+    <div id='map' class='map'></div>
+    <script>
+    
+    /**
+     * Original Code
+     * Allows user to search by address and by name of location.
+    **/ 
+    function searchWithField() {
+      let field = document.getElementById("searchField");
+      let searchString = field.value;
+      let searchLower = searchString.toLowerCase();
+      var listings = document.getElementById('listings');
+
+      if (field.value == '') {
+        for (var i=0; i < listings.children.length; i++) {
+          let currentElement = document.getElementById("listing-"+i);
+          currentElement.style.display = "block";
+        }
+      } else {
+        for (var i=0; i < listings.children.length; i++) {
+          let currentElement = document.getElementById("listing-"+i);
+
+          if  (stores.features[i].properties.address.toLowerCase().includes(searchLower) ||
+               stores.features[i].properties.locationName.toLowerCase().includes(searchLower)) {
+            currentElement.style.display = "block";
+          } else {
+            currentElement.style.display = "none";
+          }
+        }
+      }
+    }
+
+      if (!('remove' in Element.prototype)) {
+        Element.prototype.remove = function() {
+          if (this.parentNode) {
+              this.parentNode.removeChild(this);
+          }
+        };
+      }
+
+      mapboxgl.accessToken = 'pk.eyJ1Ijoibmlja2NlZ2xpbyIsImEiOiJja2MydjZqcHUwNDY2MnpsOGo3MDZhZHNnIn0.G6kNt2y1x9PJn7z-gHrQ5A';
+    
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-86.148003, 39.791000],
+        zoom: 13,
+        scrollZoom: true
+      });
+
+      // This is an important var
+      var stores = {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -86.1581,
+                39.7684
+              ]
+            },
+            "properties": {
+              "address": "1 Monument Cir",
+              "city": "Indianapolis",
+              "country": "United States",
+              "crossStreet": "idk",
+              "postalCode": "46204",
+              "state": "Indiana",
+              "covid": "Safety Risk: Highly Unsafe",
+              "locationName": "Soldiers & Sailors Monument",
+              "recentOcc": "7",
+              "recentCrowd": "4",
+              "recentMask": "3",
+              "avgOcc": "6.8",
+              "avgCrowd": "5.3",
+              "avgMask": "4.5"
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -86.158880,
+                39.810230
+              ]
+            },
+            "properties": {
+              "address": "3000 N Meridian Street",
+              "city": "Indianapolis",
+              "country": "United States",
+              "postalCode": "46208",
+              "state": "Indiana",
+              "covid": "Safety Risk: Unsafe",
+              "locationName": "The Children's Musuem of Indianapolis",
+              "recentOcc": "7",
+              "recentCrowd": "4",
+              "recentMask": "3",
+              "avgOcc": "6.8",
+              "avgCrowd": "5.3",
+              "avgMask": "4.5"
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -86.238693, 
+                39.788151
+              ]
+            },
+            "properties": {
+              "address": "4790 W 16th Street",
+              "city": "Indianapolis",
+              "country": "United States",
+              "postalCode": "46222",
+              "state": "Indiana",
+              "covid": "Safety Risk: Unsafe",
+              "locationName": "Indianapolis Motor Speedway",
+              "recentOcc": "7",
+              "recentCrowd": "4",
+              "recentMask": "3",
+              "avgOcc": "6.8",
+              "avgCrowd": "5.3",
+              "avgMask": "4.5"
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -86.162610, 
+                39.774010
+              ]
+            },
+            "properties": {
+              "address": "227 W Michigan Street",
+              "city": "Indianapolis",
+              "country": "United States",
+              "postalCode": "46204",
+              "state": "Indiana",
+              "covid": "Safety Risk: Less Safe",
+              "locationName": "Kroger",
+              "recentOcc": "7",
+              "recentCrowd": "4",
+              "recentMask": "3",
+              "avgOcc": "6.8",
+              "avgCrowd": "5.3",
+              "avgMask": "4.5"
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -86.1539807,
+                39.7717329
+              ]
+            },
+            "properties": {
+              "address": "310 Massachusetts Avenue",
+              "city": "Indianapolis",
+              "country": "United States",
+              "postalCode": "46204",
+              "state": "Indiana",
+              "covid": "Safety Risk: Less Safe",
+              "locationName": "The Eagle",
+              "recentOcc": "7",
+              "recentCrowd": "4",
+              "recentMask": "3",
+              "avgOcc": "6.8",
+              "avgCrowd": "5.3",
+              "avgMask": "4.5"
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -86.15973663330078,
+                39.77172088623047
+              ]
+            },
+            "properties": {
+              "address": "127 Illinois Street",
+              "city": "Indianapolis",
+              "country": "United States",
+              "postalCode": "46225",
+              "state": "Indiana",
+              "covid": "Safety Risk: Likely Safe",
+              "locationName": "St. Elmos Steakhouse",
+              "recentOcc": "7",
+              "recentCrowd": "4",
+              "recentMask": "3",
+              "avgOcc": "6.8",
+              "avgCrowd": "5.3",
+              "avgMask": "4.5"
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -86.17369310208595,
+                39.780061056541186
+              ]
+            },
+            "properties": {
+              "address": "951 Indiana Avenue",
+              "city": "Indianapolis",
+              "country": "United States",
+              "postalCode": "46202",
+              "state": "Indiana",
+              "covid": "Safety Risk: Highly Unsafe",
+              "locationName": "Taco Bell",
+              "recentOcc": "7",
+              "recentCrowd": "4",
+              "recentMask": "3",
+              "avgOcc": "6.8",
+              "avgCrowd": "5.3",
+              "avgMask": "4.5"
+            }
+          },
+        ]
+      };
+
+      
+      
+      /**
+       * Code from the source at the beginning of the file.
+       * Assign a unique id to each store. You'll use this `id`
+       * later to associate each point on the map with a listing
+       * in the sidebar.
+      **/
+      stores.features.forEach(function(store, i){
+        store.properties.id = i;
+      });
+
+      /**
+       * Code from the source at the beginning of the file.
+       * Wait until the map loads to make changes to the map.
+      **/
+      map.on('load', function (e) {
+        /** 
+         * This is where your '.addLayer()' used to be, instead
+         * add only the source without styling a layer
+        */
+        map.addSource("places", {
+          "type": "geojson",
+          "data": stores
+        });
+
+        /**
+         * Add all the things to the page:
+         * - The location listings on the side of the page
+         * - The markers onto the map
+        */
+        buildLocationList(stores);
+        addMarkers();
+      });
+
+      /**
+       * Code from the source at the beginning of the file.
+       * Add a marker to the map for every store listing.
+      **/
+      function addMarkers() {
+        /* For each feature in the GeoJSON object above: */
+        stores.features.forEach(function(marker) {
+          /* Create a div element for the marker. */
+          var el = document.createElement('div');
+          /* Assign a unique `id` to the marker. */
+          el.id = "marker-" + marker.properties.id;
+          /* Assign the `marker` class to each marker for styling. */
+          el.className = 'marker';
+          
+          /**
+           * Create a marker using the div element
+           * defined above and add it to the map.
+          **/
+          new mapboxgl.Marker(el, { offset: [0, -23] })
+            .setLngLat(marker.geometry.coordinates)
+            .addTo(map);
+
+          /**
+           * Listen to the element and when it is clicked, do three things:
+           * 1. Fly to the point
+           * 2. Close all other popups and display popup for clicked store
+           * 3. Highlight listing in sidebar (and remove highlight for all other listings)
+          **/
+          el.addEventListener('click', function(e){
+            /* Fly to the point */
+            flyToStore(marker);
+            /* Close all other popups and display popup for clicked store */
+            createPopUp(marker);
+            /* Highlight listing in sidebar */
+            var activeItem = document.getElementsByClassName('active');
+            e.stopPropagation();
+            if (activeItem[0]) {
+              activeItem[0].classList.remove('active');
+            }
+            var listing = document.getElementById('listing-' + marker.properties.id);
+            listing.classList.add('active');
+          });
+        });
+      }
+
+      /**
+       * Modified code inspired by the source listed at the beginning of the file.
+       * Add a listing for each store to the sidebar.
+      **/
+      function buildLocationList(data) {
+        data.features.forEach(function(store, i){
+          /**
+           * Create a shortcut for `store.properties`,
+           * which will be used several times below.
+          **/
+          var prop = store.properties;
+
+          /* Add a new listing section to the sidebar. */
+          var listings = document.getElementById('listings');
+          var listing = listings.appendChild(document.createElement('div'));
+          /* Assign a unique `id` to the listing. */
+          listing.id = "listing-" + prop.id;
+          /* Assign the `item` class to each listing for styling. */
+          listing.className = 'item';
+
+          /* Add the link to the individual listing created above. */
+          var link = listing.appendChild(document.createElement('a'));
+          link.href = '#';
+          link.className = 'title';
+          link.id = "link-" + prop.id;
+          link.innerHTML = prop.locationName;
+
+          /* Add details to the individual listing. */
+          var details = listing.appendChild(document.createElement('div'));
+          details.innerHTML = prop.address + ' · ' + prop.city;
+
+
+          /**
+           * Listen to the element and when it is clicked, do four things:
+           * 1. Update the `currentFeature` to the store associated with the clicked link
+           * 2. Fly to the point
+           * 3. Close all other popups and display popup for clicked store
+           * 4. Highlight listing in sidebar (and remove highlight for all other listings)
+          **/
+          link.addEventListener('click', function(e){
+            for (var i=0; i < data.features.length; i++) {
+              if (this.id === "link-" + data.features[i].properties.id) {
+                var clickedListing = data.features[i];
+                flyToStore(clickedListing);
+                createPopUp(clickedListing);
+                goToReports(clickedListing);
+              }
+            }
+            var activeItem = document.getElementsByClassName('active');
+            if (activeItem[0]) {
+              activeItem[0].classList.remove('active');
+            }
+            this.parentNode.classList.add('active');
+          });
+        });
+      }
+
+      /**
+       * Code from the source at the beginning of the file.
+       * Use Mapbox GL JS's `flyTo` to move the camera smoothly
+       * a given center point.
+      **/
+      function flyToStore(currentFeature) {
+        map.flyTo({
+          center: currentFeature.geometry.coordinates,
+          zoom: 15
+        });
+      }
+
+      /**
+       * Modified code inspired by the source listed at the beginning of the file.
+       * Create a Mapbox GL JS `Popup`.
+      **/
+      function createPopUp(currentFeature) {
+        var surveyLink = "https://docs.google.com/forms/d/e/1FAIpQLSfV-GdRER4ru0pmP7YynxR8GnKGEtss7-yH-b-b001IdHQ4JQ/viewform?usp=sf_link";
+        var popUps = document.getElementsByClassName('mapboxgl-popup');
+        if (popUps[0]) popUps[0].remove();
+        var popup = new mapboxgl.Popup({closeOnClick: false})
+          .setLngLat(currentFeature.geometry.coordinates);
+        if (currentFeature.properties.covid == "Safety Risk: Highly Unsafe") {
+            popup.setHTML('<h2>' + currentFeature.properties.locationName + '</h2>' +
+            '<h4 class="white">' + currentFeature.properties.address + '</h4>' +
+            '<h4 class="red">' + currentFeature.properties.covid + '</h4>' +
+            '<button type="button" onclick="location.href=\'' + surveyLink + '\'">Submit Safety Survey</button>');
+        } else if (currentFeature.properties.covid == "Safety Risk: Unsafe") {
+          popup.setHTML('<h2>' + currentFeature.properties.locationName + '</h2>' +
+            '<h4 class="white">' + currentFeature.properties.address + '</h4>' +
+            '<h4 class="orange">' + currentFeature.properties.covid + '</h4>' +
+            '<button type="button" onclick="location.href=\'' + surveyLink + '\'">Submit Safety Survey</button>');
+        } else if (currentFeature.properties.covid == "Safety Risk: Less Safe") {
+          popup.setHTML('<h2>' + currentFeature.properties.locationName + '</h2>' +
+            '<h4 class="white">' + currentFeature.properties.address + '</h4>' +
+            '<h4 class="yellow">' + currentFeature.properties.covid + '</h4>' +
+            '<button type="button" onclick="location.href=\'' + surveyLink + '\'">Submit Safety Survey</button>');
+        } else {
+          popup.setHTML('<h2>' + currentFeature.properties.locationName + '</h2>' +
+            '<h4 class="white">' + currentFeature.properties.address + '</h4>' +
+            '<h4 class="green">' + currentFeature.properties.covid + '</h4>' +
+            '<button type="button" onclick="location.href=\'' + surveyLink + '\'">Submit Safety Survey</button>');
+        }
+        popup.addTo(map);
+      }
+
+
+      /** 
+       *  Original Code
+       *  This function is called by pressing the "Back Button" on the sidebar,
+       *  and results in a shift of display from the Location Safety Data format
+       *  of the sidebar to the Search format for the sidebar.
+      **/
+      function backToSearch() {
+        var heading = document.getElementById("heading");
+        var safety_heading = document.getElementById("safety_heading");
+        var listings = document.getElementById("listings");
+        var submissions = document.getElementById("submissions");
+        
+        var prevROcc = document.getElementById('recentOcc');
+        var prevRCrowd = document.getElementById('recentCrowd');
+        var prevRMask = document.getElementById('recentMask');
+        prevROcc.remove();
+        prevRCrowd.remove();
+        prevRMask.remove();
+
+        var prevAOcc = document.getElementById('avgOcc');
+        var prevACrowd = document.getElementById('avgCrowd');
+        var prevAMask = document.getElementById('avgMask');
+        prevAOcc.remove();
+        prevACrowd.remove();
+        prevAMask.remove();
+
+        heading.style.display = "block";
+        safety_heading.style.display = "none";
+        listings.style.display = "block";
+        submissions.style.display = "none";
+      }
+      
+      /**
+       *  Original Code
+       *  This function is called when selecting a location after search,
+       *  just after the popup for the location is created. This changed the
+       *  sidebar from the Search format to the Location Safety Data format,
+       *  and displays what would be the most recent submission data for a given
+       *  location and an average of submission data for that location for 
+       *  the last hour.
+      **/
+      function goToReports(currentFeature) {
+        var heading = document.getElementById("heading");
+        var safety_heading = document.getElementById("safety_heading");
+        var listings = document.getElementById("listings");
+        var submissions = document.getElementById("submissions");
+        heading.style.display = "none";
+        safety_heading.style.display = "block";
+        listings.style.display = "none";
+        submissions.style.display = "block";
+
+        var recentsub = document.getElementById('recentsub');
+        var avgsub = document.getElementById('avgsub');
+
+        var recentOcc = recentsub.appendChild(document.createElement('div'));
+        recentOcc.id = 'recentOcc';
+        recentOcc.className = 'item';
+        recentOcc.innerHTML = "Occupancy Rating: " + currentFeature.properties.recentOcc;
+
+        var recentCrowd = recentsub.appendChild(document.createElement('div'));
+        recentCrowd.id = 'recentCrowd';
+        recentCrowd.className = 'item';
+        recentCrowd.innerHTML = "Social Distancing Rating: " + currentFeature.properties.recentCrowd;
+
+        var recentMask = recentsub.appendChild(document.createElement('div'));
+        recentMask.id = 'recentMask';
+        recentMask.className = 'item';
+        recentMask.innerHTML = "Mask Usage Rating: " + currentFeature.properties.recentMask;
+
+        var avgOcc = avgsub.appendChild(document.createElement('div'));
+        avgOcc.id = 'avgOcc';
+        avgOcc.className = 'item';
+        avgOcc.innerHTML = "Occupancy Rating: " + currentFeature.properties.avgOcc;
+
+        var avgCrowd = avgsub.appendChild(document.createElement('div'));
+        avgCrowd.id = 'avgCrowd';
+        avgCrowd.className = 'item';
+        avgCrowd.innerHTML = "Social Distancing Rating: " + currentFeature.properties.avgCrowd;
+
+        var avgMask = avgsub.appendChild(document.createElement('div'));
+        avgMask.id = 'avgMask';
+        avgMask.className = 'item';
+        avgMask.innerHTML = "Mask Usage Rating: " + currentFeature.properties.avgMask;
+
+      }
+
+    </script>
+  </body>
+</html>
