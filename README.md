@@ -28,21 +28,21 @@ This component has two types of outputs-
 
 a. Next 5-days county-wise forecast charts
 
-<img src="screenshots/dashboard - forecasted statistics.jpg" alt="drawing" width="800" height="400"/>
+<img src="screenshots/dashboard - forecasted statistics.JPG" alt="drawing" width="800" height="400"/>
 
 > https://team6-covid-forecasting.herokuapp.com/
 
 b. Geo-spatial maps of the next 1-day forecast
 
-<img src="screenshots/dashboard - forecasted covid count.jpg" alt="drawing" width="800" height="400"/>
+<img src="screenshots/dashboard - forecasted covid count.JPG" alt="drawing" width="800" height="400"/>
 
 > https://team6-forecast-covid-count.herokuapp.com/
 
-<img src="screenshots/dashboard - forecasted covid death.jpg" alt="drawing" width="800" height="400"/>
+<img src="screenshots/dashboard - forecasted covid death.JPG" alt="drawing" width="800" height="400"/>
 
 > https://team6-forecast-covid-deaths.herokuapp.com/
 
-<img src="screenshots/dashboard - forecasted covid test.jpg" alt="drawing" width="800" height="400"/>
+<img src="screenshots/dashboard - forecasted covid test.JPG" alt="drawing" width="800" height="400"/>
 
 > https://team6-forecast-covid-test.herokuapp.com/
 
@@ -52,7 +52,7 @@ The above outputs are integrated into the app and they can also be accessed usin
 
 #### ii. Realtime Population Density
 
-<img src="screenshots/population density.jpg" alt="drawing" width="800" height="400"/>
+<img src="screenshots/population density.JPG" alt="drawing" width="800" height="400"/>
 
 
 #### iii. US State-wise Policy Checker
@@ -82,13 +82,13 @@ k. Stay at Home Order
 
 These policies are represented in the geomap with different color schemes for different policies.
 
-<img src="screenshots/policy checker.jpg" alt="drawing" width="800" height="400"/>
+<img src="screenshots/policy checker.JPG" alt="drawing" width="800" height="400"/>
 
 
 #### iv. COVID-19 Daily News
 This section of the app updates daily and displays all the latest news related to COVID-19. The source of the news is Google News. The news are presented in the form of headlines along with the publishing date and the respective source URL for additional information.
 
-<img src="screenshots/covid daily news.jpg" alt="drawing" width="800" height="400"/>
+<img src="screenshots/covid daily news.JPG" alt="drawing" width="800" height="400"/>
 
 > https://team6-covid-daily-news.herokuapp.com/
 
