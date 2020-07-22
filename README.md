@@ -54,6 +54,8 @@ The above outputs are integrated into the app and they can also be accessed usin
 
 #### ii. Realtime Population Density
 
+This section of the app allows for users to check and the the risk associated with going out to specific locations in their area. Users may search for locations find user feedback about how safe that location is, and submit a report that location's safety levels. Safety reports and data consists of 0-10 scores regarding the number of people at that location, the proportion of people following social distancing guidelines, and the proportion of people wearing masks. By seeing the average submission feedback for the last hour and the most recent submission about that location, users can more easily identify shifts in the safety level that an average may not as easily display. We use Mapbox API for our map in this section.
+
 <img src="screenshots/population density.JPG" alt="drawing" width="800" height="400"/>
 
 
