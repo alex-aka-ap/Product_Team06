@@ -13,6 +13,8 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <style>
       body {
         color:#404040;
@@ -72,7 +74,7 @@
         min-height:60px;
         line-height:60px;
         padding:0 10px;
-        background-color: #00853e;
+        background-color: #00b8d4 ;
         color: #fff;
       }
 
@@ -82,7 +84,7 @@
         min-height:60px;
         line-height:60px;
         padding:0 10px;
-        background-color: #00853e;
+        background-color: #00b8d4;
         color: #fff;
       }
 
@@ -123,7 +125,7 @@
         background:none;
       }
       ::-webkit-scrollbar-thumb {
-        background:#00853e;
+        background:#00b8d4;
         border-radius:0;
       }
 
@@ -256,6 +258,10 @@
     <div class='sidebar' id='sidebar'>
       <div class='heading' id='heading' style="display:block">
         <h1>Some Example Locations</h1>
+        <a href="index.html" class="nav__link">
+          <i class="material-icons nav__icon" style="color: white;">home</i>
+          <span class="nav__text" style="color: white;">Back to home page</span>
+        </a>      
       </div>
       <div class='safety_heading' id='safety_heading' style="display:none">
         <h1>Location Safety Data</h1>
@@ -267,6 +273,7 @@
         
       </div>
       <div class='submissions' id='submissions' style="display:none">
+        <h4>All ratings are from 0-10, where 10 is the safest score.</h4>
         <h2>Most Recent Submission Report</h2>
         <div id='recentsub' class='recentsub'>
 
@@ -345,17 +352,16 @@
               "address": "1 Monument Cir",
               "city": "Indianapolis",
               "country": "United States",
-              "crossStreet": "idk",
               "postalCode": "46204",
               "state": "Indiana",
               "covid": "Safety Risk: Highly Unsafe",
               "locationName": "Soldiers & Sailors Monument",
-              "recentOcc": "7",
-              "recentCrowd": "4",
-              "recentMask": "3",
-              "avgOcc": "6.8",
-              "avgCrowd": "5.3",
-              "avgMask": "4.5"
+              "recentOcc": "3",
+              "recentCrowd": "5",
+              "recentMask": "4",
+              "avgOcc": "2.1",
+              "avgCrowd": "3.7",
+              "avgMask": "0.3"
             }
           },
           {
@@ -374,13 +380,13 @@
               "postalCode": "46208",
               "state": "Indiana",
               "covid": "Safety Risk: Unsafe",
-              "locationName": "The Children's Musuem of Indianapolis",
-              "recentOcc": "7",
-              "recentCrowd": "4",
-              "recentMask": "3",
-              "avgOcc": "6.8",
-              "avgCrowd": "5.3",
-              "avgMask": "4.5"
+              "locationName": "The Children's Museum of Indianapolis",
+              "recentOcc": "5",
+              "recentCrowd": "3",
+              "recentMask": "6",
+              "avgOcc": "4.5",
+              "avgCrowd": "3.3",
+              "avgMask": "6.5"
             }
           },
           {
@@ -398,14 +404,14 @@
               "country": "United States",
               "postalCode": "46222",
               "state": "Indiana",
-              "covid": "Safety Risk: Unsafe",
+              "covid": "Safety Risk: Less Safe",
               "locationName": "Indianapolis Motor Speedway",
               "recentOcc": "7",
-              "recentCrowd": "4",
-              "recentMask": "3",
-              "avgOcc": "6.8",
-              "avgCrowd": "5.3",
-              "avgMask": "4.5"
+              "recentCrowd": "6",
+              "recentMask": "7",
+              "avgOcc": "7.3",
+              "avgCrowd": "6.4",
+              "avgMask": "6.4"
             }
           },
           {
@@ -423,14 +429,14 @@
               "country": "United States",
               "postalCode": "46204",
               "state": "Indiana",
-              "covid": "Safety Risk: Less Safe",
+              "covid": "Safety Risk: Unsafe",
               "locationName": "Kroger",
-              "recentOcc": "7",
-              "recentCrowd": "4",
-              "recentMask": "3",
-              "avgOcc": "6.8",
-              "avgCrowd": "5.3",
-              "avgMask": "4.5"
+              "recentOcc": "3",
+              "recentCrowd": "3",
+              "recentMask": "4",
+              "avgOcc": "3.6",
+              "avgCrowd": "4.4",
+              "avgMask": "6.1"
             }
           },
           {
@@ -450,12 +456,12 @@
               "state": "Indiana",
               "covid": "Safety Risk: Less Safe",
               "locationName": "The Eagle",
-              "recentOcc": "7",
-              "recentCrowd": "4",
-              "recentMask": "3",
-              "avgOcc": "6.8",
-              "avgCrowd": "5.3",
-              "avgMask": "4.5"
+              "recentOcc": "0",
+              "recentCrowd": "2",
+              "recentMask": "4",
+              "avgOcc": "5.8",
+              "avgCrowd": "4.8",
+              "avgMask": "5.5"
             }
           },
           {
@@ -475,12 +481,12 @@
               "state": "Indiana",
               "covid": "Safety Risk: Likely Safe",
               "locationName": "St. Elmos Steakhouse",
-              "recentOcc": "7",
-              "recentCrowd": "4",
-              "recentMask": "3",
-              "avgOcc": "6.8",
-              "avgCrowd": "5.3",
-              "avgMask": "4.5"
+              "recentOcc": "9",
+              "recentCrowd": "8",
+              "recentMask": "5",
+              "avgOcc": "8.9",
+              "avgCrowd": "7.8",
+              "avgMask": "6"
             }
           },
           {
@@ -500,14 +506,114 @@
               "state": "Indiana",
               "covid": "Safety Risk: Highly Unsafe",
               "locationName": "Taco Bell",
-              "recentOcc": "7",
-              "recentCrowd": "4",
-              "recentMask": "3",
-              "avgOcc": "6.8",
-              "avgCrowd": "5.3",
-              "avgMask": "4.5"
+              "recentOcc": "5",
+              "recentCrowd": "3",
+              "recentMask": "6",
+              "avgOcc": "2.2",
+              "avgCrowd": "1.6",
+              "avgMask": "4.3"
             }
           },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -86.124803,
+                39.768263
+              ]
+            },
+            "properties": {
+              "address": "2104 E Washington Street",
+              "city": "Indianapolis",
+              "country": "United States",
+              "postalCode": "46201",
+              "state": "Indiana",
+              "covid": "Safety Risk: Likely Safe",
+              "locationName": "Neidhammer Coffee Company",
+              "recentOcc": "5",
+              "recentCrowd": "2",
+              "recentMask": "7",
+              "avgOcc": "8.3",
+              "avgCrowd": "5.1",
+              "avgMask": "8.8"
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -86.184080,
+                39.777860
+              ]
+            },
+            "properties": {
+              "address": "720 Eskenazi Avenue",
+              "city": "Indianapolis",
+              "country": "United States",
+              "postalCode": "46202",
+              "state": "Indiana",
+              "covid": "Safety Risk: Unsafe",
+              "locationName": "Eskenazi Hospital",
+              "recentOcc": "4",
+              "recentCrowd": "8",
+              "recentMask": "10",
+              "avgOcc": "2.4",
+              "avgCrowd": "6.0",
+              "avgMask": "8.9"
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -86.143580,
+                39.869970
+              ]
+            },
+            "properties": {
+              "address": "838 Broad Ripple Avenue",
+              "city": "Indianapolis",
+              "country": "United States",
+              "postalCode": "46220",
+              "state": "Indiana",
+              "covid": "Safety Risk: Less Safe",
+              "locationName": "Condado Tacos",
+              "recentOcc": "5",
+              "recentCrowd": "7",
+              "recentMask": "4",
+              "avgOcc": "5.3",
+              "avgCrowd": "6.7",
+              "avgMask": "5.1"
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -86.1571,
+                39.7690 
+              ]
+            },
+            "properties": {
+              "address": "111 Monument Cir Suite 1800",
+              "city": "Indianapolis",
+              "country": "United States",
+              "postalCode": "46204",
+              "state": "Indiana",
+              "covid": "Safety Risk: Likely Safe",
+              "locationName": "TechPoint",
+              "recentOcc": "8",
+              "recentCrowd": "8",
+              "recentMask": "9",
+              "avgOcc": "8.5",
+              "avgCrowd": "9.1",
+              "avgMask": "8.8"
+            }
+          }
         ]
       };
 
