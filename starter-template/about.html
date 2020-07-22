@@ -28,14 +28,22 @@
 
 <body>
   <style>
-.navigation {
-    text-align: center;
-     /* if you want it vertically middle of the navbar. */
-}
+    .navigation {
+      text-align: center;
+
+      /* if you want it vertically middle of the navbar. */
+    }
+
+    iframe {
+      overflow: hidden;
+    }
+
+    /* Page content */
   </style>
+
   <div class="navigation">
     <nav class="cyan accent-4" role="navigation">
-    <img class="logo" src="POP.png" width="90" height="65">
+      <img class="logo" src="POP.png" width="90" height="65">
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Menu</a></li>
       </ul>
@@ -47,11 +55,10 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-  
   </div>
-  
+  </nav>
+  </div>
+
 
   <div class="section no-pad-bot" id="index-banner">
     <div
@@ -71,30 +78,30 @@
     </div>
   </div>
 
-  <iframe src="member_index.html" height="550" width="103%" title="Iframe Example"></iframe>
+  <iframe src="member_index.html" height="600" width="103%" title="Iframe Example"></iframe>
 
 
- <!--  bottom navigation menu-->
-</div>
-<nav class="nav">
-  <a href="index.html" class="nav__link">
-    <i class="material-icons nav__icon">dashboard</i>
-    <span class="nav__text">Dashboard</span>
-  </a>
-  <a href="map.html" class="nav__link nav__link--active">
-    <i class="material-icons nav__icon">accessibility</i>
-    <span class="nav__text">Population Density</span>
-  </a>
-  <a href="topmenu.html" class="nav__link">
-    <i class="material-icons nav__icon">fact_check</i>
-    <span class="nav__text">Policy Checker</span>
-  </a>
-  <a href="news_board.html" class="nav__link">
-    <i class="material-icons nav__icon">article</i>
-    <span class="nav__text">News</span>
-  </a>
+  <!--  bottom navigation menu-->
+  </div>
+  <nav class="nav">
+    <a href="index.html" class="nav__link">
+      <i class="material-icons nav__icon">dashboard</i>
+      <span class="nav__text">Dashboard</span>
+    </a>
+    <a href="map.html" class="nav__link nav__link">
+      <i class="material-icons nav__icon">accessibility</i>
+      <span class="nav__text">Population Density</span>
+    </a>
+    <a href="topmenu.html" class="nav__link">
+      <i class="material-icons nav__icon">fact_check</i>
+      <span class="nav__text">Policy Checker</span>
+    </a>
+    <a href="news_board.html" class="nav__link">
+      <i class="material-icons nav__icon">article</i>
+      <span class="nav__text">News</span>
+    </a>
 
-</nav>
+  </nav>
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

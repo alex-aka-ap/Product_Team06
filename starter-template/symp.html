@@ -14,13 +14,20 @@
 
 
 <body>
-   <!--top menu bar-->
-   <nav class="cyan accent-4" role="navigation">
-    <style>
-      .img-container {
+  <style>
+      .navigation {
+      text-align: center;
+      /* if you want it vertically middle of the navbar. */
+    }
+    .img-container {
         text-align: center;
         margin: auto;
       }
+    
+  </style>
+   <!--top menu bar-->
+   <div class="navigation">
+     <nav class="cyan accent-4" role="navigation">
     </style>
     <div class="img-container">
     <img src="POP.png" width="90" height="65">
@@ -37,9 +44,11 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+   </div>
 
-  <div class="section no-pad-bot" id="index-banner">
-    <div style="background-image: url('https://boygeniusreport.files.wordpress.com/2020/03/medical-face-mask-coronavirus.jpg?quality=70&strip=all');">
+   <div class="info-section">
+     <div class="section no-pad-bot" id="index-banner">
+    <div class="background-pic"style="background-image: url('https://boygeniusreport.files.wordpress.com/2020/03/medical-face-mask-coronavirus.jpg?quality=70&strip=all');">
       <br><br>
       <h1 class="header center teal-text">COVID-19 Symptoms</h1>
       <div class="row center">
@@ -93,8 +102,8 @@
         <br><br>
         <br><br>
         <div style="background-image: url('https://scopeblog.stanford.edu/wp-content/uploads/2018/02/surgeons-washing-hands-1152x578.jpg');">
-                <h4 class="header center">The Center for Disease and Control (CDC) recommends we do the following to decrease
-                     the spread of COVID-19.</h4>
+                <h4 class="header center"><strong>The Center for Disease and Control (CDC) recommends we do the following to decrease
+                     the spread of COVID-19.</strong></h4>
                 <br><br>
                 <h5 class="header col s12 light">1. Wash your hands often.</h5>
                 <h5 class="header col s12 light">2. Avoid touching your eyes, nose, and mouth.</h5>
@@ -104,8 +113,8 @@
                 <br><br>
         </div>
         <div class="row center">
-            <div class="header col s12">
-                For more information on how to stay safe.
+            <div class="header col s12 teal-text">
+               <h4>For more information on how to stay safe.</h4> 
             </div>
             <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html" id="download-button" class="btn-large waves-effect waves-light teal">Click Here</a>
         </div>
@@ -113,23 +122,29 @@
     </div>
   </div>
   
+   </div>
+  
  <!--  bottom navigation menu-->
-  </div>
-  <nav class="nav">
-    <a href="#" class="nav__link">
-      <i class="material-icons nav__icon">dashboard</i>
-      <span class="nav__text">Dashboard</span>
-    </a>
-    <a href="#" class="nav__link nav__link--active">
-      <i class="material-icons nav__icon">accessibility</i>
-      <span class="nav__text">Population Density</span>
-    </a>
-    <a href="#" class="nav__link">
-      <i class="material-icons nav__icon">fact_check</i>
-      <span class="nav__text">Policy Checker</span>
-    </a>
-  </nav>
 
+<nav class="nav">
+  <a href="index.html" class="nav__link">
+    <i class="material-icons nav__icon">dashboard</i>
+    <span class="nav__text">Dashboard</span>
+  </a>
+  <a href="map.html" class="nav__link nav__link">
+    <i class="material-icons nav__icon">accessibility</i>
+    <span class="nav__text">Population Density</span>
+  </a>
+  <a href="topmenu.html" class="nav__link">
+    <i class="material-icons nav__icon">fact_check</i>
+    <span class="nav__text">Policy Checker</span>
+  </a>
+  <a href="news_board.html" class="nav__link">
+    <i class="material-icons nav__icon">article</i>
+    <span class="nav__text">News</span>
+  </a>
+
+</nav>
 
 
 
