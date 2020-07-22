@@ -1,4 +1,4 @@
-<center><img src="screenshots/" alt="drawing" width="300" height="200"/></center>
+<center><img src="screenshots/POP logo.png" alt="drawing" width="300" height="200"/></center>
 
 # COVID Detection (Team 06)
 This project repository is the part of Techpoint's S.O.S. challenge - 2020. It consists of "COVID DETECTION" activites and developing an app which serves as a one-stop & quick-access solution for a layman covering majority of the COVID-19 related contents, without searching on Google.
