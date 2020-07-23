@@ -18,6 +18,7 @@ iv. COVID-19 Daily News
 
 v.  Miscellaneous (Nearest COVID Testing center, COVID symptoms, Developer's bio, Bug reporting)
 
+<img src="screenshots/architecture diagram.jpg" alt="drawing" width="800" height="400"/>
 
 ## 2. Components
 
@@ -135,7 +136,7 @@ to record your changes locally. After committing, it is a good idea to sync with
 Then push the changes to your GitHub account with:
 > $ git push -u origin my-feature
 
-4. Go to the GitHub web page of your fork of the ArviZ repo. Click the 'Pull request' button to send your changes to the project's maintainers for review. This will send an email to the committers.
+4. Go to the GitHub web page of your fork of the app repo. Click the 'Pull request' button to send your changes to the project's maintainers for review. This will send an email to the committers.
 
 
 ## 4. Important URLs hosted for the app
