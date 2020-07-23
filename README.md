@@ -173,10 +173,10 @@ d] Social Distancing Policy Collection Dataset
 e] US States FIPS code
 > https://www.nrcs.usda.gov/wps/portal/nrcs/detail/?cid=nrcs143_013696
 
-e] COVID-19 Symptoms & Precautions
+f] COVID-19 Symptoms & Precautions
 > https://www.cdc.gov/
 
-f] Nearest COVID-19 testing center
+g] Nearest COVID-19 testing center
 > https://www.anthem.com/microsites/covid19-assessment/covid-finder.html
 
 
