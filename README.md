@@ -1,4 +1,4 @@
-<center><img src="screenshots/POP logo.png" alt="drawing" width="300" height="200"/></center>
+<img src="screenshots/POP logo.png" alt="drawing" width="300" height="200"/>
 
 # COVID Detection (Team 06)
 This project repository is the part of Techpoint's S.O.S. challenge - 2020. It consists of "COVID DETECTION" activites and developing an app which serves as a one-stop & quick-access solution for a layman covering majority of the COVID-19 related contents, without searching on Google.
@@ -107,6 +107,7 @@ This section of the app updates daily and displays all the latest news related t
 
 2. Clone your fork of the Product_Team06 repo from your GitHub account to your local disk.
 > $ git clone git@github.com:<your GitHub handle>/Product_Team06.git
+
 > $ cd Product_Team06
 
 3. Go to "popul app tempelate/starter-template" directory, run index.html locally. (If in VScode, right click open live server) This will take you to the default home page of the app. (Note: The app is currently designed for low-resolution devices and hence do not open the app in full-screen mode in the browser). 
@@ -123,10 +124,12 @@ Always use a feature branch. It's good practice to never routinely work on the m
 
 3. Develop the feature on your feature branch. Add changed files using git add and then git commit files:
 > $ git add modified_files
+
 > $ git commit -m "commit message here"
 
 to record your changes locally. After committing, it is a good idea to sync with the base repository in case there have been any changes:
 > $ git fetch upstream
+
 > $ git rebase upstream/master
 
 Then push the changes to your GitHub account with:
