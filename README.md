@@ -167,10 +167,16 @@ b] Indiana County-wise Population and Area
 c] Indiana County FIPS code
 > https://en.wikipedia.org/wiki/List_of_counties_in_Indiana
 
-d] COVID-19 Symptoms & Precautions
+d] Social Distancing Policy Collection Dataset
+> https://www.kff.org/coronavirus-covid-19/issue-brief/state-data-and-policy-actions-to-address-coronavirus/
+
+e] US States FIPS code
+> https://www.nrcs.usda.gov/wps/portal/nrcs/detail/?cid=nrcs143_013696
+
+e] COVID-19 Symptoms & Precautions
 > https://www.cdc.gov/
 
-e] Nearest COVID-19 testing center
+f] Nearest COVID-19 testing center
 > https://www.anthem.com/microsites/covid19-assessment/covid-finder.html
 
 
