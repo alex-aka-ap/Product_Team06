@@ -98,6 +98,15 @@ This section of the app updates daily and displays all the latest news related t
 > https://team6-covid-daily-news.herokuapp.com/
 
 #### v. Miscellaneous
+This section of the app includes four main tabs: (1) About us, (2) Find a Testing Center, (3) Health, and (4) Contact.
+
+1. About us: Gives the user a brief background on the team members who have contributed to POP's development.
+
+2. Find a Testing Center: Allows users to enter a zip code and find a COVID-19 testing center nearest to them. 
+
+3. Health: Informs the user on the latest symptoms related to COVID-19 and tips on how to help stop the spread.
+
+4. Contact: Enables the user to report any issue they have with the site by filling out a quick Google form which is sent directly to POP team members.
 
 
 ## 3. Steps
