@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Product_Team06
 Repository for the product solution provided by COVID Outbreak Detection Team 06.
 =======
+=======
+>>>>>>> combined
 <img src="screenshots/POP logo.png" alt="drawing" width="300" height="200"/>
 
 # COVID Detection (Team 06)
@@ -205,4 +208,7 @@ g] Nearest COVID-19 testing center
 #### Mentors
 1. Libby Ball      - https://www.linkedin.com/in/libby-ball-a5537737/
 2. Jeffrey Walters - https://www.linkedin.com/in/jeffrey-walters-60269416/
+<<<<<<< HEAD
 >>>>>>> 893e0c801b1d6090f8aff64831503128db371a6f
+=======
+>>>>>>> combined

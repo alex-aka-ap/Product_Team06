@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+<script type="text/javascript">
+    function goToPage763(mySelect) {
+
+      PageIndex2 = mySelect.selectedIndex;
+
+      {
+
+        if
+
+          (
+
+          mySelect.options[PageIndex2].value != "none"
+
+        ) {
+
+          //this is the key code in the JavaScript to open the new page in
+
+          //the iframe:-
+
+          frames['iframe2'].location.href = mySelect.options[PageIndex2].value;
+
+        }
+
+      }
+
+    }
+
+  </script>
+
+  <form name="form763">
+
+    <p>
+
+      <select name="select763" size="1" onchange="goToPage763(this.form.select763)">
+
+        <option value="none" selected="selected">
+          Select the policy you want to know about
+        </option>
+        <option value="output/Bar Closures.html"> Bar Closures</option>
+        <option value="output/Emergency Declaration.html">Emergency Declaration </option>
+        <option value="output/Face Covering Requirement.html">Face Covering Requirement</option>
+        <option value="output/Large Gatherings Ban.html" >Large Gatherings Ban</option>
+        <option value="output/Mandatory Quarantine for Travelers.html">Mandatory Quarantine for Travelers</option>
+        <option value="output/Primary Election Postponement.html" target="mid_col">Primary Election Postponement</option>
+        <option value="output/Restaurant Limits.html" target="mid_col">Restaurant Limits</option>
+        <option value="output/School Closures.html" target="mid_col">School Closures</option>
+        <option value="output/Status of Reopening.html" target="mid_col">Status of Reopening</option>
+        <option value="output/Non-Essential Business Closures.html" target="mid_col">Non-Essential Business Closures</option>
+        <option value="output/Stay at Home Order.html" target="mid_col">Stay at Home Order</option>
+
+
+      </select>
+
+    </p>
+    
+    <p>
+    
+    <!-- The code below is the code in the body of this document that writes the form-->
+    
+    <iframe name="iframe2" src="output/Bar Closures.html" align="top" height="100%" width="100%" hspace="10" vspace="10" align="middle">
+    
+    If you can see this, your browser does not support iframes!
+    
+    </iframe>
+    
+    </p>
+    
+    </form>

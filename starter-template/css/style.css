@@ -1,0 +1,48 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+/*Team*/
+.team-member {
+  margin: 5%;
+  text-align: center;
+}
+.team-member p{
+  font-size: 15px;
+}
+
+.team-member h4 {
+  margin-top: 0 rem;
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 768px) {
+  .team-member img {position:relative; float:left; width:30%; height: auto}
+  }
+  
+  @media only screen and (max-width: 767px) {
+  .team-member img {position:relative; float:left; width:30%; height: auto}
+  }
+/*End of Team*/
+iframe{
+  overflow:hidden;
+}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
