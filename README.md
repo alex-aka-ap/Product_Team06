@@ -114,7 +114,7 @@ This section of the app includes four main tabs: (1) About us, (2) Find a Testin
 
 ## 3. Steps
 
-#### i. Steps to execute the app
+#### i. Steps to execute the app 
 
 1. Fork the project repository by clicking on the 'Fork' button near the top right of the main repository page. This creates a copy of the code under your GitHub user account.
 
@@ -123,7 +123,7 @@ This section of the app includes four main tabs: (1) About us, (2) Find a Testin
 
 > $ cd Product_Team06
 
-3. Go to "starter-template" directory, run index.html locally. (If in VScode, right click open live server) This will take you to the default home page of the app. (Note: The app is currently designed for low-resolution devices and hence do not open the app in full-screen mode in the browser). 
+3. Go to "starter-template" directory, run index.html locally. (If in VScode, right click open live server) This will take you to the default home page of the app. (Note: The app is currently designed for low-resolution devices and hence do not open the app in full-screen mode in the browser. Also, certain components of the app require Internet connection for the output.). 
 
 #### ii. Steps to contribute to the app
 
