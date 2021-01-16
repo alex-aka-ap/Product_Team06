@@ -3,3 +3,6 @@
 
 #idea folder
 .idea
+
+#notebook checkpoint files
+.ipynb_checkpoints
